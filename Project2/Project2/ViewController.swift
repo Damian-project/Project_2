@@ -81,6 +81,30 @@ class ViewController: UIViewController {
     @IBAction func buttonTapped(_ sender: UIButton) {
         var title: String
         
+        //Animation
+        if button1.isTouchInside {
+        UIView.animate(withDuration: 0.6,
+            animations: {
+                self.button1.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)} ,
+            completion: {_ in
+                UIView.animate(withDuration: 0.6) {
+                    self.button1.transform = CGAffineTransform.identity }
+        }) } else if button2.isTouchInside {
+            UIView.animate(withDuration: 0.6,
+            animations: {
+                self.button2.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)} ,
+            completion: {_ in
+                UIView.animate(withDuration: 0.6) {
+                    self.button2.transform = CGAffineTransform.identity }
+            }) } else if button3.isTouchInside {
+            UIView.animate(withDuration: 0.6,
+            animations: {
+                self.button3.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)} ,
+            completion: {_ in
+                UIView.animate(withDuration: 0.6) {
+                    self.button3.transform = CGAffineTransform.identity }
+            }) }
+        
         if sender.tag == correctAnswer {
             title = "Correct"
             score += 1
